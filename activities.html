@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lesotho Tourism | Activities</title>
+	
+	<!-- Offline Fallback Styles (Bypasses Connection Blocker) -->
+	<style>
+		:root {
+			--primary: #0d6efd;
+			--dark: #212529;
+			--light: #f8f9fa;
+			--gray: #6c757d;
+		}
+		body {
+			margin: 0;
+			font-family: system-ui, -apple-system, sans-serif;
+			background-color: var(--light);
+			color: var(--dark);
+		}
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 15px;
+		}
+		/* Navbar Layout */
+		.navbar {
+			background-color: var(--dark);
+			padding: 1rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.navbar-brand {
+			color: #fff;
+			font-size: 1.25rem;
+			text-decoration: none;
+			font-weight: bold;
+		}
+		.navbar-nav {
+			display: flex;
+			list-style: none;
+			padding-left: 0;
+			margin: 0;
+			gap: 15px;
+		}
+		.nav-link {
+			color: rgba(255,255,255,0.65);
+			text-decoration: none;
+			padding: 0.5rem;
+		}
+		.nav-link:hover, .nav-link.active {
+			color: #fff;
+		}
+		/* Grid & Card Layout */
+		.text-center { text-align: center; }
+		.my-4 { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+		.mb-5 { margin-bottom: 3rem; }
+		h1 { font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--primary); }
+		h2 { margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #dee2e6; padding-bottom: 0.5rem; }
+		
+		.card-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+			gap: 25px;
+			margin-bottom: 2rem;
+		}
+		.card {
+			background: #fff;
+			border: 1px solid #dee2e6;
+			border-radius: 8px;
+			overflow: hidden;
+			box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+			display: flex;
+			flex-direction: column;
+		}
+		.card-img {
+			width: 100%;
+			height: 240px;
+			object-fit: cover;
+		}
+		.card-body {
+			padding: 20px;
+			flex-grow: 1;
+		}
+		.card-title {
+			margin: 0 0 12px 0;
+			font-size: 1.25rem;
+			font-weight: bold;
+			color: #212529;
+		}
+		.card-text {
+			margin: 0;
+			color: var(--gray);
+			font-size: 0.95rem;
+			line-height: 1.6;
+		}
+		/* Bootstrap-style Table Design */
+		.table-container {
+			overflow-x: auto;
+			background: #fff;
+			border: 1px solid #dee2e6;
+			border-radius: 8px;
+			padding: 10px;
+			box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+			margin-bottom: 2rem;
+		}
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			text-align: left;
+			font-size: 0.95rem;
+		}
+		th, td {
+			padding: 12px 15px;
+			border-bottom: 1px solid #dee2e6;
+		}
+		th {
+			background-color: #f1f3f5;
+			font-weight: bold;
+			color: var(--dark);
+		}
+		tr:hover {
+			background-color: #f8f9fa;
+		}
+		/* Fixed Warning Banner Style */
+		.alert-banner {
+			background-color: #fff3cd;
+			color: #664d03;
+			border: 1px solid #ffe69c;
+			padding: 15px;
+			border-radius: 6px;
+			margin-top: 3rem;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+		footer {
+			background-color: var(--dark);
+			color: #fff;
+			text-align: center;
+			padding: 1rem 0;
+			margin-top: 2rem;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar">
+		<a class="navbar-brand" href="index.html">Lesotho Tourism</a>
+		<ul class="navbar-nav">
+			<li><a class="nav-link" href="index.html">Home</a></li>
+			<li><a class="nav-link" href="destinations.html">Destinations</a></li>
+			<li><a class="nav-link active" href="activities.html">Activities</a></li>
+			<li><a class="nav-link" href="accommodation.html">Accommodation</a></li>
+			<li><a class="nav-link" href="gallery.html">Gallery</a></li>
+			<li><a class="nav-link" href="bookings.html">Bookings</a></li>
+		</ul>
+	</nav>
+
+	<!-- Main Content Container -->
+	<main class="container">
+		<div class="my-4 text-center">
+			<h1>Activities to do in Lesotho</h1>
+		</div>
+
+		<!-- Card Grid Layout -->
+		<div class="card-grid">
+			
+			<!-- Activity: Abseiling -->
+			<div class="card">
+				<img src="absel.jpg.jpg" class="card-img" alt="Abseiling">
+				<div class="card-body">
+					<div class="card-title">Abseiling at Maletsunyane Falls</div>
+					<p class="card-text">Descend the 204-meter single-drop waterfall in Semonkong, holder of a Guinness World Record for the commercial single-drop abseil.</p>
+				</div>
+			</div>
+
+			<!-- Activity: Pony Trekking -->
+			<div class="card">
+				<img src="ponytrekking.jpg.jpg" class="card-img" alt="Pony trekking">
+				<div class="card-body">
+					<div class="card-title">Pony Trekking</div>
+					<p class="card-text">Ride traditional Basotho ponies through mountain trails, deep gorges, and high altitude passes, with popular departures from Semonkong Lodge and Malealea Lodge.</p>
+				</div>
+			</div>
+
+			<!-- Activity: Hiking & Camping -->
+			<div class="card">
+				<img src="hike.jpg.jpg" class="card-img" alt="Hiking">
+				<div class="card-body">
+					<div class="card-title">Hiking & Camping</div>
+					<p class="card-text">Explore rugged terrain in the Maluti Mountains, Ts'ehlanyane National Park and Sehlabathebe National Park.</p>
+				</div>
+			</div>
+
+			<!-- Activity: Fly Fishing -->
+			<div class="card">
+				<img src="flyfish.jpg.jpg" class="card-img" alt="Fly Fishing">
+				<div class="card-body">
+					<div class="card-title">Fly Fishing</div>
+					<p class="card-text">Cast for brown and rainbow trout in the rivers and streams around Semonkong and the Lesotho highlands.</p>
+				</div>
+			</div>
+
+			<!-- Activity: Quad Biking -->
+			<div class="card">
+				<img src="quad.jpg.jpg" class="card-img" alt="Quad Biking">
+				<div class="card-body">
+					<div class="card-title">Quad Biking</div>
+					<p class="card-text">Thrill through the dirt tracks and mountain paths on rugged multi-terrain quad bikes across remote Basotho mountain villages.</p>
+				</div>
+			</div>
+
+			<!-- Activity: Skiing -->
+			<div class="card">
+				<img src="skii.jpg.jpg" class="card-img" alt="Skiing">
+				<div class="card-body">
+					<div class="card-title">Skiing</div>
+					<p class="card-text">Experience crisp winter sports high up on the slopes of the Maluti Mountains at Africa's pristine high-altitude winter snow resorts.</p>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Activity Fees Section -->
+		<h2>Activity Fees</h2>
+		<div class="table-container">
+			<table>
+				<thead>
+					<tr>
+						<th>Activity</th>
+						<th>Location / Hub</th>
+						<th>Estimated Fee (Local Currency)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Maletsunyane Abseil</strong></td>
+						<td>Semonkong Lodge</td>
+						<td>M 1,200.00</td>
+					</tr>
+					<tr>
+						<td><strong>Pony Trekking (Half Day)</strong></td>
+						<td>Malealea / Semonkong</td>
+						<td>M 350.00</td>
+					</tr>
+					<tr>
+						<td><strong>National Park Hiking Entry</strong></td>
+						<td>Ts'ehlanyane / Sehlabathebe</td>
+						<td>M 50.00</td>
+					</tr>
+					<tr>
+						<td><strong>Highlands Fly Fishing Permit</strong></td>
+						<td>Katse / Semonkong Streams</td>
+						<td>M 150.00</td>
+					</tr>
+					<tr>
+						<td><strong>Guided Quad Biking (Per Hour)</strong></td>
+						<td>Mountain Passes Hub</td>
+						<td>M 450.00</td>
+					</tr>
+					<tr>
+						<td><strong>Ski Resort Ski Pass</strong></td>
+						<td>Afriski Mountain Resort</td>
+						<td>M 650.00</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- Tourism Weather Warning Banner -->
+		<div id="touristWarning" class="alert-banner" style="display: none;">
+			<strong>⚠️ Important Tourist Notice:</strong> Lesotho experiences extreme mountain weather variations. Temperatures drop drastically at night and during high-altitude trails. Tourists are strictly advised to dress warmly and pack insulated layers before embarking on activities.
+		</div>
+	</main>
+
+	<!-- Footer with assignment info -->
+	<footer>
+		<p>Student Name: Motselisi Moalosi | Student ID: 901021557</p>
+	</footer>
+
+	<!-- Offline Menu Toggle & Warning Render Logic -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			// Handles Mobile Navbar Toggle Menu
+			var toggler = document.querySelector('.navbar-toggler');
+			var collapse = document.querySelector('.navbar-collapse');
+			if (toggler && collapse) {
+				toggler.addEventListener('click', function () {
+					collapse.style.display = (collapse.style.display === 'block') ? 'none' : 'block';
+				});
+			}
+
+			// Injects and renders the weather condition message block at runtime
+			var warningBanner = document.getElementById('touristWarning');
+			if (warningBanner) {
+				warningBanner.style.display = 'flex';
+			}
+		});
+	</script>
+</body>
+</html>

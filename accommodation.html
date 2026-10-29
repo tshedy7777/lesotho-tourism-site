@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lesotho Tourism - Accommodation</title>
+	
+	<!-- Offline Fallback Styles (Bypasses Connection Blocker) -->
+	<style>
+		:root {
+			--primary: #0d6efd;
+			--primary-hover: #0b5ed7;
+			--dark: #212529;
+			--light: #f8f9fa;
+			--gray: #6c757d;
+		}
+		body {
+			margin: 0;
+			font-family: system-ui, -apple-system, sans-serif;
+			background-color: var(--light);
+			color: var(--dark);
+		}
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 15px;
+		}
+		/* Navbar Layout */
+		.navbar {
+			background-color: var(--dark);
+			padding: 1rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.navbar-brand {
+			color: #fff;
+			font-size: 1.25rem;
+			text-decoration: none;
+			font-weight: bold;
+		}
+		.navbar-nav {
+			display: flex;
+			list-style: none;
+			padding-left: 0;
+			margin: 0;
+			gap: 15px;
+		}
+		.nav-link {
+			color: rgba(255,255,255,0.65);
+			text-decoration: none;
+			padding: 0.5rem;
+		}
+		.nav-link:hover, .nav-link.active {
+			color: #fff;
+		}
+		
+		.text-center { text-align: center; }
+		.my-4 { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+		.mb-5 { margin-bottom: 3rem; }
+		h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--primary); }
+		.lead { font-size: 1.15rem; color: #495057; line-height: 1.6; max-width: 800px; margin: 0 auto 2rem auto; }
+		.category-title { border-bottom: 2px solid #dee2e6; padding-bottom: 0.5rem; margin-bottom: 1.5rem; color: #495057; }
+		.category-subtitle { color: var(--gray); font-size: 1rem; margin-top: -1rem; margin-bottom: 1.5rem; font-style: italic; }
+
+		/* Category Carousel Banner Structure (Offline Safe) */
+		.banner-carousel {
+			position: relative;
+			width: 100%;
+			height: 300px;
+			border-radius: 12px;
+			overflow: hidden;
+			margin-bottom: 2rem;
+			box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+		}
+		.carousel-slides {
+			display: flex;
+			width: 300%;
+			height: 100%;
+			transition: transform 0.6s ease-in-out;
+		}
+		.slide {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		.carousel-overlay-text {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: linear-gradient(transparent, rgba(0,0,0,0.8));
+			padding: 20px;
+			color: #fff;
+		}
+		.carousel-btn {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: rgba(0,0,0,0.5);
+			color: white;
+			border: none;
+			padding: 12px;
+			cursor: pointer;
+			font-size: 1.25rem;
+			border-radius: 50%;
+			width: 45px;
+			height: 45px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			user-select: none;
+		}
+		.carousel-btn:hover { background: rgba(0,0,0,0.8); }
+		.prev-btn { left: 15px; }
+		.next-btn { right: 15px; }
+		
+		/* Grid & Card Layout with Hover Effects */
+		.card-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			gap: 25px;
+		}
+		.card {
+			background: #fff;
+			border: 1px solid #dee2e6;
+			border-radius: 8px;
+			overflow: hidden;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+			display: flex;
+			flex-direction: column;
+			/* Core Hover Transition Setup */
+			transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+		}
+		/* Cards elevate and expand cleanly on hover */
+		.card:hover {
+			transform: translateY(-8px);
+			box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+			border-color: #adb5bd;
+		}
+		.card-img {
+			width: 100%;
+			height: 220px;
+			object-fit: cover;
+		}
+		.card-body {
+			padding: 20px;
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+		}
+		.card-title {
+			margin: 0 0 10px 0;
+			font-size: 1.2rem;
+			font-weight: bold;
+		}
+		.card-text {
+			margin: 0 0 20px 0;
+			color: var(--gray);
+			font-size: 0.95rem;
+			line-height: 1.5;
+			flex-grow: 1;
+		}
+		/* Direct Action Form Redirection Buttons */
+		.btn-book {
+			display: block;
+			text-align: center;
+			background-color: var(--primary);
+			color: #fff;
+			text-decoration: none;
+			padding: 10px 15px;
+			font-weight: bold;
+			font-size: 0.95rem;
+			border-radius: 6px;
+			transition: background-color 0.15s ease;
+			border: 1px solid transparent;
+		}
+		.btn-book:hover {
+			background-color: var(--primary-hover);
+			color: #fff;
+		}
+		footer {
+			background-color: var(--dark);
+			color: #fff;
+			text-align: center;
+			padding: 1rem 0;
+			margin-top: 3rem;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar">
+		<a class="navbar-brand" href="index.html">Lesotho Tourism</a>
+		<ul class="navbar-nav">
+			<li><a class="nav-link" href="index.html">Home</a></li>
+			<li><a class="nav-link" href="destinations.html">Destinations</a></li>
+			<li><a class="nav-link" href="activities.html">Activities</a></li>
+			<li><a class="nav-link active" href="accommodation.html">Accommodation</a></li>
+			<li><a class="nav-link" href="gallery.html">Gallery</a></li>
+			<li><a class="nav-link" href="bookings.html">Bookings</a></li>
+		</ul>
+	</nav>
+
+	<!-- Main Content Container -->
+	<main class="container">
+		<div class="my-4 text-center">
+			<h1>Where to Stay</h1>
+			<p class="lead">In Lesotho, most tourists stay in Maseru for comfort, and in the mountain lodges outside the city for adventure. These are the places that are best set up to accommodate visitors.</p>
+		</div>
+
+		<!-- CATEGORY 1: In the Lowlands -->
+		<section class="mb-5">
+			<h2 class="category-title">In the Lowlands</h2>
+			<p class="category-subtitle">The options best for first night, near border, banks and malls.</p>
+			
+			<!-- Embedded Banner Slider Carousel for Lowlands -->
+			<div class="banner-carousel" id="carousel-lowlands">
+				<div class="carousel-slides">
+					<img src="lesotho avani.jpg.jpg" class="slide" alt="Avani Slide">
+					<img src="mpilo.jpg" class="slide" alt="Mpilo Slide">
+					<img src="maliba.jpg.jpg" class="slide" alt="Maliba Slide">
+				</div>
+				<button class="carousel-btn prev-btn" onclick="moveSlide('carousel-lowlands', -1)">&#10094;</button>
+				<button class="carousel-btn next-btn" onclick="moveSlide('carousel-lowlands', 1)">&#10095;</button>
+				<div class="carousel-overlay-text">
+					<h4 style="margin:0;">Premium Lowland Gateways</h4>
+					<p style="margin:5px 0 0 0;font-size:0.9rem;color:#e2e8f0;">Luxury urban hotels and breathtaking forest canyon eco-lodges.</p>
+				</div>
+			</div>
+
+			<div class="card-grid">
+				
+				<!-- Card 1: Avani -->
+				<div class="card">
+					<img src="lesotho avani.jpg.jpg" class="card-img" alt="Avani Lesotho">
+					<div class="card-body">
+						<div class="card-title">Avani Lesotho / Maseru Hotel & Casino</div>
+						<p class="card-text">Full service, pool, restaurant, conference facilities and main luxury option in the capital.</p>
+						<a href="bookings.html" class="btn-book">Book This Choice &rarr;</a>
+					</div>
+				</div>
+
+				<!-- Card 2: Boutique Business Stays -->
+				<div class="card">
+					<img src="mpilo.jpg" class="card-img" alt="Mpilo Boutique Hotel">
+					<div class="card-body">
+						<div class="card-title">Mpilo Boutique Hotel, The Palace, Blue Mountain Inn</div>
+						<p class="card-text">Mid-range options in Maseru, quieter and safer than the city centre.</p>
+						<a href="bookings.html" class="btn-book">Book This Choice &rarr;</a>
+					</div>
+				</div>
+
+				<!-- Card 3: Maliba Lodge -->
+				<div class="card">
+					<img src="maliba.jpg.jpg" class="card-img" alt="Maliba Lodge">
+					<div class="card-body">
+						<div class="card-title">Maliba Lodge & Maliba Mountain Chalet</div>
+						<p class="card-text">5-star, family friendly, hiking, skiing, horse riding, archery, kids club. The most rated lodge in the country right now.</p>
+						<a href="bookings.html" class="btn-book">Book This Choice &rarr;</a>
+					</div>
+				</div>
+
+				<!-- Card 4: Malealea & Semonkong -->
+				<div class="card">
+					<img src="sem.jpg" class="card-img" alt="Semonkong Lodge">
+					<div class="card-body">
+						<div class="card-title">Malealea & Semonkong Adventure Hubs</div>
+						<p class="card-text">Semonkong features beautiful single-drop waterfall horse paths. Malealea is a world-class community trekking village lodge setup.</p>
+						<a href="bookings.html" class="btn-book">Book This Choice &rarr;</a>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- CATEGORY 2: Highlands -->
+		<section class="mb-5">
+			<h2 class="category-title">Highlands</h2>
+			
+			<!-- Embedded Banner Slider Carousel for Highlands -->
+			<div class="banner-carousel" id="carousel-highlands">
+				<div class="carousel-slides">
+					<img src="kat.jpg" class="slide" alt="Katse Slide">
+					<img src="moh.jpg" class="slide" alt="Mohale Slide">
+					<img src="lod.jpg" class="slide" alt="Sani Slide">
+				</div>
+				<button class="carousel-btn prev-btn" onclick="moveSlide('carousel-highlands', -1)">&#10094;</button>
+				<button class="carousel-btn next-btn" onclick="moveSlide('carousel-highlands', 1)">&#10095;</button>
+				<div class="carousel-overlay-text">
+					<h4 style="margin:0;">Highland Engineering & Ridge Stays</h4>
+					<p style="margin:5px 0 0 0;font-size:0.9rem;color:#e2e8f0;">Unmatched dam panoramas and high-altitude tavern lodging maps.</p>
+				</div>
+			</div>
+
+			<div class="card-grid">
+
+				<!-- Card 5: Katse Lodge -->
+				<div class="card">
+					<img src="kat.jpg" class="card-img" alt="Katse Lodge">
+					<div class="card-body">
+						<div class="card-title">Katse Lodge</div>
+						<p class="card-text">Overlooking Katse Dam; main comfortable stay for exploring central highlands, boating and trout fishing.</p>
+						<a href="bookings.html" class="btn-book">Book This Choice &rarr;</a>
+					</div>
+				</div>
+
+				<!-- Card 6: Mohale Lodge -->
+				<div class="card">
+					<img src="moh.jpg" class="card-img" alt="Mohale Lodge">
+					<div class="card-body">
+						<div class="card-title">Mohale Lodge</div>
+						<p>Natural breeze, amazing scenery and captivating mountains</p>
+						<a href="bookings.html" class="btn-book">Book This Choice &rarr;</a>
+					</div>
+				</div>
+
+				<!-- Card 7: Sani Mountain Lodge -->
+				<div class="card">
+					<img src="lod.jpg" class="card-img" alt="Sani Lodge">
+					<div class="card-body">
+						<div class="card-title">Sani Mountain Lodge</div>
+						<p class="card-text">At the top of Sani Pass, close to the highest pub in Africa and perfect for cultural contact runs.</p>
+						<a href="bookings.html" class="btn-book">Book This Choice &rarr;</a>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- CATEGORY 3: Cultural & Historical -->
+		<section class="mb-5">
+			<h2 class="category-title">Cultural & Historical</h2>
+			<div class="card-grid">
+				<div class="card">
+					<img src="thaba.jpg" class="card-img" alt="Thaba Bosiu">
+					<div class="card-body">
+						<div class="card-title">Thaba-Bosiu Cultural Village</div>
+						<p class="card-text">Traditional accommodation and tours near the historic mountain fortress of King Moshoeshoe I.</p>
+						<a href="bookings.html" class="btn-book">Book This Choice &rarr;</a>
+					</div>
+				</div>
+
+				<div class="card">
+					<img src="roma.jpg" class="card-img" alt="Roma Valley">
+					<div class="card-body">
+						<div class="card-title">Roma Valley Stay</div>
+						<p class="card-text">A calm location near Maseru, excellent for a peaceful, budget-friendly overnight stop.</p>
+						<a href="bookings.html" class="btn-book">Book This Choice &rarr;</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<p>Student Name: Motselisi Moalosi | Student ID: 901021557</p>
+	</footer>
+
+	<script>
+		function moveSlide(carouselId, direction) {
+			var carousel = document.getElementById(carouselId);
+			if (!carousel) return;
+			var slides = carousel.querySelector('.carousel-slides');
+			var slideCount = slides.children.length;
+			var currentTranslate = slides.dataset.translate ? parseInt(slides.dataset.translate) : 0;
+			var nextTranslate = currentTranslate + direction;
+			if (nextTranslate < 0) nextTranslate = slideCount - 1;
+			if (nextTranslate >= slideCount) nextTranslate = 0;
+			slides.dataset.translate = nextTranslate;
+			slides.style.transform = 'translateX(-' + (nextTranslate * (100 / slideCount)) + '%)';
+		}
+	</script>
+</body>
+</html>

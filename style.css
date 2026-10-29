@@ -1,0 +1,19 @@
+<!-- Bootstrap 5 JavaScript Bundle with Popper (For form validation) -->
+<script src="https://jsdelivr.net"></script>
+<script>
+    // Example Bootstrap JavaScript for disabling form submissions if there are invalid fields
+    (() => {
+        'use strict'
+        const forms = document.querySelectorAll('.needs-validation')
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
+</body>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lesotho Tourism - Destinations</title>
+	
+	<!-- Offline Fallback Styles (Bypasses Connection Blocker) -->
+	<style>
+		:root {
+			--primary: #0d6efd;
+			--dark: #212529;
+			--light: #f8f9fa;
+			--gray: #6c757d;
+		}
+		body {
+			margin: 0;
+			font-family: system-ui, -apple-system, sans-serif;
+			background-color: var(--light);
+			color: var(--dark);
+		}
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 15px;
+		}
+		/* Navbar Layout */
+		.navbar {
+			background-color: var(--dark);
+			padding: 1rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.navbar-brand {
+			color: #fff;
+			font-size: 1.25rem;
+			text-decoration: none;
+			font-weight: bold;
+		}
+		.navbar-nav {
+			display: flex;
+			list-style: none;
+			padding-left: 0;
+			margin: 0;
+			gap: 15px;
+		}
+		.nav-link {
+			color: rgba(255,255,255,0.65);
+			text-decoration: none;
+			padding: 0.5rem;
+		}
+		.nav-link:hover, .nav-link.active {
+			color: #fff;
+		}
+		/* Grid & Card Layout */
+		.text-center { text-align: center; }
+		.my-4 { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+		.mb-5 { margin-bottom: 3rem; }
+		h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--primary); }
+		.lead { font-size: 1.25rem; color: var(--gray); }
+		.category-title { border-bottom: 2px solid #dee2e6; padding-bottom: 0.5rem; margin-bottom: 1.5rem; color: #495057; }
+		
+		.card-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			gap: 20px;
+		}
+		.card {
+			background: #fff;
+			border: 1px solid #dee2e6;
+			border-radius: 8px;
+			overflow: hidden;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+			display: flex;
+			flex-direction: column;
+		}
+		.card-img {
+			width: 100%;
+			height: 220px;
+			object-fit: cover;
+		}
+		.card-body {
+			padding: 15px;
+			flex-grow: 1;
+		}
+		.card-title {
+			margin: 0 0 10px 0;
+			font-size: 1.25rem;
+			font-weight: bold;
+		}
+		.card-text {
+			margin: 0;
+			color: var(--gray);
+			font-size: 0.95rem;
+			line-height: 1.5;
+		}
+		footer {
+			background-color: var(--dark);
+			color: #fff;
+			text-align: center;
+			padding: 1rem 0;
+			margin-top: 3rem;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar">
+		<a class="navbar-brand" href="index.html">Lesotho Tourism</a>
+		<ul class="navbar-nav">
+			<li><a class="nav-link" href="index.html">Home</a></li>
+			<li><a class="nav-link active" href="destinations.html">Destinations</a></li>
+			<li><a class="nav-link" href="activities.html">Activities</a></li>
+			<li><a class="nav-link" href="accommodation.html">Accommodation</a></li>
+			<li><a class="nav-link" href="gallery.html">Gallery</a></li>
+			<li><a class="nav-link" href="bookings.html">Bookings</a></li>
+		</ul>
+	</nav>
+
+	<!-- Main Content Container -->
+	<main class="container">
+		<div class="row my-4 text-center">
+			<h1>Explore Lesotho</h1>
+			<p class="lead">Here are the best tourist destinations in Lesotho</p>
+		</div>
+
+		<!-- CATEGORY 1: Waterfalls & Adventure -->
+		<section class="mb-5">
+			<h2 class="category-title">Waterfalls & Adventure</h2>
+			<div class="card-grid">
+				
+				<!-- Card: Maletsunyane Falls -->
+				<div class="card">
+					<img src="waterf.jpg.jpg" class="card-img" alt="Maletsunyane Waterfall">
+					<div class="card-body">
+						<div class="card-title">Maletsunyane Falls - Semonkong</div>
+						<p class="card-text">One of the highest single-drop waterfalls in Africa at 192m. You can do the world's highest commercial abseil here, plus pony trekking.</p>
+					</div>
+				</div>
+
+				<!-- Card: Katse Dam -->
+				<div class="card">
+					<img src="katse.jpg.jpg" class="card-img" alt="Katse Dam">
+					<div class="card-body">
+						<div class="card-title">Katse Dam</div>
+						<p class="card-text">Second largest dam in Africa, part of the Highlands Water Project.</p>
+					</div>
+				</div>
+
+				<!-- Card: Afriski -->
+				<div class="card">
+					<img src="afriskii.jpg.jpg" class="card-img" alt="Afri Ski">
+					<div class="card-body">
+						<div class="card-title">Afriski & Mahlasela - Butha-Buthe</div>
+						<p class="card-text">Only ski resort in Lesotho, open for skiing in winter (June-Aug), and for mountain biking/adventure in summer.</p>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- CATEGORY 2: Mountains & National Parks -->
+		<section class="mb-5">
+			<h2 class="category-title">Mountains & National Parks</h2>
+			<div class="card-grid">
+
+				<!-- Card: Sani Pass -->
+				<div class="card">
+					<img src="pass.jpg" class="card-img" alt="Sani Pass">
+					<div class="card-body">
+						<div class="card-title">Sani Pass</div>
+						<p class="card-text">The famous pass from South Africa to Lesotho. You need a 4x4. On top is the Sani Mountain Lodge with the highest pub in Africa.</p>
+					</div>
+				</div>
+
+				<!-- Card: Ts'ehlanyane -->
+				<div class="card">
+					<img src="tsehla.jpg" class="card-img" alt="Ts'ehlanyane">
+					<div class="card-body">
+						<div class="card-title">Ts'ehlanyane National Park</div>
+						<p class="card-text">Best for hiking, forests, waterfalls, Basotho pony trails. Home to Maliba Lodge.</p>
+					</div>
+				</div>
+
+				<!-- Card: Sehlabathebe -->
+				<div class="card">
+					<img src="sehl.jpg" class="card-img" alt="Sehlabathebe">
+					<div class="card-body">
+						<div class="card-title">Sehlabathebe National Park</div>
+						<p class="card-text">UNESCO World Heritage Site with the Drakensberg. Rock art, rock formations, wild horses, very remote and wild.</p>
+					</div>
+				</div>
+
+				<!-- Card: Bokong -->
+				<div class="card">
+					<img src="bokong.jpg" class="card-img" alt="Bokong">
+					<div class="card-body">
+						<div class="card-title">Bokong Nature Reserve</div>
+						<p class="card-text">Near Katse, has the famous Lepaqoa Waterfall that freezes in winter.</p>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- CATEGORY 3: History And Culture -->
+		<section class="mb-5">
+			<h2 class="category-title">History And Culture</h2>
+			<div class="card-grid">
+
+				<!-- Card: Thaba-Bosiu -->
+				<div class="card">
+					<img src="bosiu.jpg.jpg" class="card-img" alt="Thaba-Bosiu">
+					<div class="card-body">
+						<div class="card-title">Thaba-Bosiu</div>
+						<p class="card-text">The mountain fortress where King Moshoeshoe The First founded the Basotho nation. Museum and cultural village at the foot.</p>
+					</div>
+				</div>
+
+				<!-- Card: Ha-Kome -->
+				<div class="card">
+					<img src="kome.jpg" class="card-img" alt="Kome Caves">
+					<div class="card-body">
+						<div class="card-title">Ha-Kome Cave Houses</div>
+						<p class="card-text">200-year-old homes built inside caves, still inhabited by descendants of the original clan.</p>
+					</div>
+				</div>
+
+				<!-- Card: Liphofung Cave -->
+				<div class="card">
+					<img src="liph.jpg" class="card-img" alt="Liphofung">
+					<div class="card-body">
+						<div class="card-title">Liphofung Cave - Near Oxbow</div>
+						<p class="card-text">San rock art painting inside a large sandstone rock.</p>
+					</div>
+				</div>
+
+				<!-- Card: Morija -->
+				<div class="card">
+					<img src="mues.jpg" class="card-img" alt="Museum">
+					<div class="card-body">
+						<div class="card-title">Morija</div>
+						<p class="card-text">Historic mission town with Morija Museum & Archives, Lesotho's oldest museum and home to the Morija Arts Festival.</p>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- CATEGORY 4: Cities & Towns -->
+		<section class="mb-5">
+			<h2 class="category-title">Cities & Towns</h2>
+			<div class="card-grid">
+
+				<!-- Card: Maseru -->
+				<div class="card">
+					<img src="msu.jpg" class="card-img" alt="Maseru">
+					<div class="card-body">
+						<div class="card-title">Maseru</div>
+						<p class="card-text">Capital, for markets, Basotho Hat craft market, and nightlife.</p>
+					</div>
+				</div>
+
+				<!-- Card: Malealea -->
+				<div class="card">
+					<img src="mll.jpg" class="card-img" alt="Malealea">
+					<div class="card-body">
+						<div class="card-title">Malealea</div>
+						<p class="card-text">Small village run by community tourism. Best for authentic village homestays, horse trails, and pony trekking school visits.</p>
+					</div>
+				</div>
+
+				<!-- Card: Mokhotlong & Leribe -->
+				<div class="card">
+					<img src="let.jpg" class="card-img" alt="Letsheng">
+					<div class="card-body">
+						<div class="card-title">Mokhotlong & Leribe</div>
+						<p class="card-text">For diamond mines views and weaving cooperatives.</p>
+					</div>
+				</div>
+
+			</div>
+		</section>
+	</main>
+
+	<!-- Footer with assignment info -->
+	<footer>
+		<p>Student Name: Motselisi Moalosi | Student ID: 901021557</p>
+	</footer>
+	    <!-- Native Embedded JavaScript for Bootstrap Menu Toggling (100% Offline Safe) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var toggler = document.querySelector('.navbar-toggler');
+            var collapse = document.querySelector('.navbar-collapse');
+            
+            if (toggler && collapse) {
+                toggler.addEventListener('click', function () {
+                    if (collapse.style.display === 'block') {
+                        collapse.style.display = 'none';
+                    } else {
+                        collapse.style.display = 'block';
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Your Custom Project JavaScript file -->
+    <script src="js/script.js"></script>
+
+
+</body>
+</html>
+

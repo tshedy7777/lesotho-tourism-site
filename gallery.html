@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lesotho Tourism | Gallery</title>
+	
+	<!-- Compiled Bootstrap 5 & Custom Core CSS (100% Offline-Safe) -->
+	<style>
+		:root {
+			--bs-blue: #0d6efd;
+			--bs-dark: #212529;
+			--bs-light: #f8f9fa;
+			--bs-body-bg: #1a202c; 
+			--bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+		}
+		body {
+			margin: 0;
+			font-family: var(--bs-font-sans-serif);
+			background-color: var(--bs-body-bg);
+			color: #ffffff;
+		}
+		.container {
+			width: 100%;
+			max-width: 1140px;
+			margin-right: auto;
+			margin-left: auto;
+			padding-right: 15px;
+			padding-left: 15px;
+		}
+		.navbar {
+			position: relative;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0.5rem 1rem;
+			background-color: var(--bs-dark);
+		}
+		.navbar-brand {
+			padding-top: 0.3125rem;
+			padding-bottom: 0.3125rem;
+			margin-right: 1rem;
+			font-size: 1.25rem;
+			text-decoration: none;
+			white-space: nowrap;
+			color: #fff;
+			font-weight: 700;
+		}
+		.navbar-nav {
+			display: flex;
+			flex-direction: row;
+			padding-left: 0;
+			margin-bottom: 0;
+			list-style: none;
+			margin-left: auto;
+			gap: 15px;
+		}
+		.nav-link {
+			display: block;
+			padding: 0.5rem 1rem;
+			text-decoration: none;
+			color: rgba(255, 255, 255, 0.55);
+			transition: color 0.15s ease-in-out;
+		}
+		.nav-link:hover, .nav-link.active {
+			color: #fff;
+		}
+		.text-center { text-align: center !important; }
+		.my-4 { margin-top: 1.5rem !important; margin-bottom: 1.5rem !important; }
+		.display-5 { font-size: calc(1.425rem + 2.1vw); font-weight: 700; line-height: 1.2; color: #fff; }
+		.lead { font-size: 1.25rem; font-weight: 300; color: #cbd5e0; }
+
+		.gallery-container {
+			position: relative;
+			width: 100%;
+			height: 500px;
+			background-color: #000;
+			border-radius: 12px;
+			overflow: hidden;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+			margin-bottom: 2rem;
+		}
+		.slides-viewport {
+			display: flex;
+			width: 1000%; 
+			height: 100%;
+			transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+		.slide-frame {
+			width: 10%; 
+			height: 100%;
+			position: relative;
+		}
+		.slide-img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		.caption-panel {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: linear-gradient(transparent, rgba(0, 0, 0, 0.95) 75%);
+			padding: 50px 30px 30px 30px;
+			color: #fff;
+		}
+		.caption-title {
+			font-size: 1.6rem;
+			font-weight: 700;
+			margin-bottom: 8px;
+			color: #ffffff;
+		}
+		.caption-desc {
+			font-size: 0.95rem;
+			line-height: 1.6;
+			color: #cbd5e0;
+			max-width: 850px;
+			margin: 0;
+		}
+		.nav-btn {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: rgba(0, 0, 0, 0.4);
+			color: #ffffff;
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			cursor: pointer;
+			font-size: 1.75rem;
+			border-radius: 50%;
+			width: 55px;
+			height: 55px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: background-color 0.2s, transform 0.2s;
+			user-select: none;
+			z-index: 15;
+		}
+		.nav-btn:hover { background: rgba(0, 0, 0, 0.8); transform: translateY(-50%) scale(1.05); }
+		.btn-left { left: 20px; }
+		.btn-right { right: 20px; }
+
+		.thumb-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+			gap: 15px;
+			margin-top: 1.5rem;
+			margin-bottom: 4rem;
+		}
+		.thumb-card {
+			background: #2d3748;
+			border: 2px solid transparent;
+			border-radius: 8px;
+			overflow: hidden;
+			cursor: pointer;
+			box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+			transition: transform 0.2s ease, border-color 0.2s;
+			height: 110px;
+		}
+		.thumb-card:hover { transform: translateY(-4px); }
+		.thumb-card.active-thumb {
+			border-color: var(--bs-blue);
+			box-shadow: 0 0 12px rgba(13, 110, 253, 0.7);
+		}
+		.thumb-img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			opacity: 0.5;
+			transition: opacity 0.2s;
+		}
+		.thumb-card:hover .thumb-img, .thumb-card.active-thumb .thumb-img { opacity: 1; }
+		footer { background-color: var(--bs-dark); color: #fff; text-align: center; padding: 1.5rem 0; }
+	</style>
+</head>
+<body>
+
+	<!-- Navigation Bar -->
+	<nav class="navbar">
+		<a class="navbar-brand" href="index.html">Lesotho Tourism</a>
+		<ul class="navbar-nav">
+			<li><a class="nav-link" href="index.html">Home</a></li>
+			<li><a class="nav-link" href="destinations.html">Destinations</a></li>
+			<li><a class="nav-link" href="activities.html">Activities</a></li>
+			<li><a class="nav-link" href="accommodation.html">Accommodation</a></li>
+			<li><a class="nav-link active" href="gallery.html">Gallery</a></li>
+			<li><a class="nav-link" href="bookings.html">Bookings</a></li>
+		</ul>
+	</nav>
+
+	<!-- Main Layout Container -->
+	<main class="container">
+		<div class="my-4 text-center">
+			<h1 class="display-5">Scenic Lesotho Gallery</h1>
+			<p class="lead">Explore the unmatched beauty of the Kingdom in the Sky through our interactive sliding grid.</p>
+		</div>
+
+		<!-- Master Sliding Slideshow Component -->
+		<div class="gallery-container">
+			<button class="nav-btn btn-left" onclick="changeSlide(-1)">❮</button>
+			<button class="nav-btn btn-right" onclick="changeSlide(1)">❯</button>
+			
+			<div class="slides-viewport" id="slidesViewport">
+				<!-- Card 1: Maletsunyane Falls -->
+				<div class="slide-frame">
+					<img src="waterf.jpg.jpg" class="slide-img" alt="Maletsunyane Falls">
+					<div class="caption-panel">
+						<div class="caption-title">Maletsunyane Falls</div>
+						<p class="caption-desc">A magnificent 192-meter plume of water plummeting over majestic basalt cliffs into a dramatic cloud-rimmed gorge near Semonkong.</p>
+					</div>
+				</div>
+
+				<!-- Card 2: Katse Dam -->
+				<div class="slide-frame">
+					<img src="katse.jpg.jpg" class="slide-img" alt="Katse Dam">
+					<div class="caption-panel">
+						<div class="caption-title">Katse Dam Reservoir</div>
+						<p class="caption-desc">An incredible engineering marvel tucked inside the high mountains, producing smooth channels of bright blue highland waters.</p>
+					</div>
+				</div>
+
+				<!-- Card 3: Afriski Slopes -->
+				<div class="slide-frame">
+					<img src="afriskii.jpg.jpg" class="slide-img" alt="Afriski Resort">
+					<div class="caption-panel">
+						<div class="caption-title">Afriski Slopes</div>
+						<p class="caption-desc">Southern Africa's premier high-altitude ski resort, offering fresh winter snowboarding tracks and rugged summer adventure trails.</p>
+					</div>
+				</div>
+
+				<!-- Card 4: Sani Pass -->
+				<div class="slide-frame">
+					<img src="pass.jpg" class="slide-img" alt="Sani Pass">
+					<div class="caption-panel">
+						<div class="caption-title">Sani Pass Switchbacks</div>
+						<p class="caption-desc">The legendary 4x4 mountain pass weaving through steep valley walls right up to the highest pub in Africa.</p>
+					</div>
+				</div>
+
+				<!-- Card 5: Ts'ehlanyane Wilderness -->
+				<div class="slide-frame">
+					<img src="tsehla.jpg" class="slide-img" alt="Ts'ehlanyane Park">
+					<div class="caption-panel">
+						<div class="caption-title">Ts'ehlanyane National Park</div>
+						<p class="caption-desc">Vast mountain valleys holding rare high-altitude forests, refreshing mountain streams, and rugged horse-riding wilderness trails.</p>
+					</div>
+				</div>
+
+				<!-- Card 6: Sehlabathebe Plains -->
+				<div class="slide-frame">
+					<img src="sehl.jpg" class="slide-img" alt="Sehlabathebe Park">
+					<div class="caption-panel">
+						<div class="caption-title">Sehlabathebe National Park</div>
+						<p class="caption-desc">An ancient alpine plateau rich with unique sandstone formations, pristine rock pools, wild orchids, and wild horses roaming free.</p>
+					</div>
+				</div>
+
+				<!-- Card 7: Frozen Lepaqoa -->
+				<div class="slide-frame">
+					<img src="bokong.jpg" class="slide-img" alt="Bokong Nature Reserve">
+					<div class="caption-panel">
+						<div class="caption-title">Bokong Nature Reserve</div>
+						<p class="caption-desc">High rocky peaks overlooking dramatic valleys, home to the famous Lepaqoa waterfall which freezes into a huge sheet of solid ice during mid-winter.</p>
+					</div>
+				</div>
+
+				<!-- Card 8: Thaba-Bosiu Fortress -->
+				<div class="slide-frame">
+					<img src="bosiu.jpg.jpg" class="slide-img" alt="Thaba-Bosiu Fort">
+					<div class="caption-panel">
+						<div class="caption-title">Thaba-Bosiu Fortress Mountain</div>
+						<p class="caption-desc">The sacred flat-topped mountain fortress where King Moshoeshoe I united clans and founded the historical birthplace of the Basotho nation.</p>
+					</div>
+				</div>
+
+				<!-- Card 9: Ha-Kome Dwellings -->
+				<div class="slide-frame">
+					<img src="kome.jpg" class="slide-img" alt="Ha-Kome Caves">
+					<div class="caption-panel">
+						<div class="caption-title">Ha-Kome Cave Houses</div>
+						<p class="caption-desc">Remarkable mud and thatch dwellings built completely inside hidden cave alcoves over 200 years ago, still occupied by original clan families.</p>
+					</div>
+				</div>
+
+				<!-- Card 10: Liphofung Sanctuary -->
+				<div class="slide-frame">
+					<img src="liph.jpg" class="slide-img" alt="Liphofung Cave art">
+					<div class="caption-panel">
+						<div class="caption-title">Liphofung Cave Sanctuary</div>
+						<p class="caption-desc">A deep historic sandstone overhang sheltering colorful, priceless ancient San rock paintings and early archaeological stone tools near Oxbow.</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- Direct Access Thumbnails Grid -->
+		<div class="thumb-grid">
+			<div class="thumb-card active-thumb" onclick="goToSlide(0)"><img src="waterf.jpg.jpg" class="thumb-img" alt="Thumb 1"></div>
+			<div class="thumb-card" onclick="goToSlide(1)"><img src="katse.jpg.jpg" class="thumb-img" alt="Thumb 2"></div>
+			<div class="thumb-card" onclick="goToSlide(2)"><img src="afriskii.jpg.jpg" class="thumb-img" alt="Thumb 3"></div>
+			<div class="thumb-card" onclick="goToSlide(3)"><img src="pass.jpg" class="thumb-img" alt="Thumb 4"></div>
+			<div class="thumb-card" onclick="goToSlide(4)"><img src="tsehla.jpg" class="thumb-img" alt="Thumb 5"></div>
+			<div class="thumb-card" onclick="goToSlide(5)"><img src="sehl.jpg" class="thumb-img" alt="Thumb 6"></div>
+			<div class="thumb-card" onclick="goToSlide(6)"><img src="bokong.jpg" class="thumb-img" alt="Thumb 7"></div>
+			<div class="thumb-card" onclick="goToSlide(7)"><img src="bosiu.jpg.jpg" class="thumb-img" alt="Thumb 8"></div>
+			<div class="thumb-card" onclick="goToSlide(8)"><img src="kome.jpg" class="thumb-img" alt="Thumb 9"></div>
+			<div class="thumb-card" onclick="goToSlide(9)"><img src="liph.jpg" class="thumb-img" alt="Thumb 10"></div>
+		</div>
+	</main>
+
+	<footer>
+		<div class="container">
+			<p style="margin: 0; font-size: 0.95rem;">Student Name: Motselisi Moalosi | Student ID: 901021557</p>
+		</div>
+	</footer>
+
+	<script>
+		var currentSlideIndex = 0;
+		var totalSlidesCount = 10;
+		var viewportElement = document.getElementById('slidesViewport');
+		var thumbnailCards = document.querySelectorAll('.thumb-card');
+
+		function updateGalleryDisplay() {
+			// Shifts the grid viewport horizontally via sliding translations
+			var positionShift = -currentSlideIndex * 10;
+			viewportElement.style.transform = 'translateX(' + positionShift + '%)';
+			
+			// Toggles blue border highlighting for the active thumbnail choice
+			for (var i = 0; i < thumbnailCards.length; i++) {
+				if (i === currentSlideIndex) {
+					thumbnailCards[i].classList.add('active-thumb');
+				} else {
+					thumbnailCards[i].classList.remove('active-thumb');
+				}
+			}
+		}
+
+		function changeSlide(direction) {
+			currentSlideIndex += direction;
+			if (currentSlideIndex >= totalSlidesCount) { currentSlideIndex = 0; }
+			if (currentSlideIndex < 0) { currentSlideIndex = totalSlidesCount - 1; }
+			updateGalleryDisplay();
+		}
+
+		function goToSlide(slideIndex) {
+			currentSlideIndex = slideIndex;
+			updateGalleryDisplay();
+		}
+	</script>
+</body>
+</html>
+
